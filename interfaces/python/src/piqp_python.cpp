@@ -9,6 +9,7 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 #include <pybind11/eigen.h>
+#include <pybind11/functional.h>
 
 #include "piqp/piqp.hpp"
 
@@ -106,7 +107,8 @@ PYBIND11_MODULE(PYTHON_MODULE_NAME, m) {
         .def_readwrite("iterative_refinement_static_regularization_eps", &piqp::Settings<T>::iterative_refinement_static_regularization_eps)
         .def_readwrite("iterative_refinement_static_regularization_rel", &piqp::Settings<T>::iterative_refinement_static_regularization_rel)
         .def_readwrite("verbose", &piqp::Settings<T>::verbose)
-        .def_readwrite("compute_timings", &piqp::Settings<T>::compute_timings);
+        .def_readwrite("compute_timings", &piqp::Settings<T>::compute_timings)
+        .def_readwrite("custom_term_cb", &piqp::Settings<T>::custom_term_cb);
 
     using SparseSolver = piqp::SparseSolver<T, I, piqp::KKTMode::KKT_FULL>;
     py::class_<SparseSolver>(m, "SparseSolver")

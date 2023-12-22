@@ -141,8 +141,8 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
 setup(
-    name="piqp",
-    version="0.2.4",
+    name="piqptr",
+    version="0.2.4-tr",
     url='https://github.com/PREDICT-EPFL/piqp',
     author="Roland Schwan",
     author_email="roland.schwan@epfl.ch",
@@ -150,9 +150,9 @@ setup(
     description="A Proximal Interior Point Quadratic Programming solver",
     long_description=long_description,
     long_description_content_type='text/markdown',
-    ext_modules=[CMakeExtension("piqp.piqp")],
-    package_dir={"piqp": "interfaces/python/piqp"},
-    packages=["piqp"],
+    ext_modules=[CMakeExtension("piqptr.piqptr")],
+    package_dir={"piqptr": "interfaces/python/piqp"},
+    packages=["piqptr"],
     cmdclass={"build_ext": CMakeBuild},
     zip_safe=False,
     extras_require={"test": ["pytest>=6.0", "numpy", "scipy"]},

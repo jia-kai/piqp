@@ -470,7 +470,8 @@ protected:
 
             if (m_result.info.primal_inf < m_settings.eps_abs + m_settings.eps_rel * m_result.info.primal_rel_inf &&
                 m_result.info.dual_inf < m_settings.eps_abs + m_settings.eps_rel * m_result.info.dual_rel_inf &&
-                (!m_settings.check_duality_gap || m_result.info.duality_gap < m_settings.eps_duality_gap_abs + m_settings.eps_duality_gap_rel * m_result.info.duality_gap_rel))
+                (!m_settings.check_duality_gap || m_result.info.duality_gap < m_settings.eps_duality_gap_abs + m_settings.eps_duality_gap_rel * m_result.info.duality_gap_rel) &&
+                (!m_settings.custom_term_cb || m_settings.custom_term_cb(m_result)))
             {
                 m_result.info.status = Status::PIQP_SOLVED;
                 return m_result.info.status;

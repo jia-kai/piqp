@@ -22,15 +22,15 @@ def load_main_module(globals):
             return False
 
     all_modules = [
-        ("piqp_python_avx512", instruction_set.avx512f),
-        ("piqp_python_avx2", instruction_set.avx2),
+        ("piqptr_python_avx512", instruction_set.avx512f),
+        ("piqptr_python_avx2", instruction_set.avx2),
     ]
 
     for module_name, check in all_modules:
         if check and load_module(module_name):
             return
 
-    assert load_module("piqp_python")
+    assert load_module("piqptr_python")
 
 
 load_main_module(globals=globals())

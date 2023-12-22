@@ -9,3 +9,6 @@ cmake-build-*/
 *.mex*
 *.asv
 *.pdb
+/dist
+/compile_flags.txt
+*.egg-info

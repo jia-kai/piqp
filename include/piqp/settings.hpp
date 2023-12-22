@@ -10,9 +10,15 @@
 #define PIQP_SETTINGS_HPP
 
 #include <limits>
+#include <functional>
+
+#include "piqp/typedefs.hpp"
 
 namespace piqp
 {
+
+template<typename T>
+struct Result;
 
 template<typename T>
 struct Settings
@@ -50,6 +56,9 @@ struct Settings
 
     bool verbose = false;
     bool compute_timings = false;
+
+    std::function<bool(const Result<T>&)> custom_term_cb = nullptr;
+    //! extra termination condition
 
     bool verify_settings() const noexcept
     {
